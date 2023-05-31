@@ -1,0 +1,94 @@
+states:
+  date:
+    type: str
+    value: "2023-05-14"
+  hours:
+    type: int
+    value: 12
+  minutes:
+    type: float
+    value: 10
+agents:
+  player1:
+    name:
+      "you"
+    verbs:
+      "to be": "are"
+    location:
+      "living room"
+    position:
+      "sitting"
+locations:
+  living room:
+    description:
+      "in the living room of your apartment"
+    positions:
+      sitting:
+      standing:
+    actions:
+      stand:
+        stand
+      sit:
+        sit
+      go:
+          bedroom:
+            [move, "bedroom"]
+          kitchen:
+            [move, "kitchen"]
+          hallway:
+            [move, "hallway"]
+  in your bedroom:
+    description:
+      "in the bedroom of your apartment"
+    positions:
+      lying:
+      standing:
+    actions:
+      stand:
+        stand
+      sit:
+        sit
+      go:
+          living room:
+            [move, "living room"]
+          kitchen:
+            [move, "kitchen"]
+          hallway:
+            [move, "hallway"]
+objects:
+  clock:
+    name:
+      "clock"
+    description:
+      "a clock on the wall"
+    verbs:
+      "to be": "is"
+    location:
+      "in your apartment"
+    actions:
+      look at:
+        state_the_time
+  bed:
+    name:
+      "bed"
+    description:
+      "a queen bed"
+    verbs:
+      "to be": "is"
+    location:
+      "in your bedroom"
+  mailbox:
+    name:
+      "mailbox"
+    description:
+      "a mailbox numbered 407"
+    verbs:
+      "to be": "is"
+    location:
+      "in the foyer of your apartment building"
+    actions:
+      open:
+        open_mailbox
+  letter:
+    location:
+      "in your mailbox"
